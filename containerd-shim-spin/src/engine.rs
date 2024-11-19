@@ -128,11 +128,12 @@ impl Engine for SpinEngine {
     }
 
     fn can_precompile(&self) -> Option<String> {
-        let mut hasher = DefaultHasher::new();
-        self.wasmtime_engine
-            .precompile_compatibility_hash()
-            .hash(&mut hasher);
-        Some(hasher.finish().to_string())
+        // let mut hasher = DefaultHasher::new();
+        // self.wasmtime_engine
+        //     .precompile_compatibility_hash()
+        //     .hash(&mut hasher);
+        // Some(hasher.finish().to_string())
+        None
     }
 }
 
@@ -172,7 +173,7 @@ impl SpinEngine {
                 // Configure the loader to support loading AOT compiled components..
                 // Since all components were compiled by the shim (during `precompile`),
                 // this operation can be considered safe.
-                loader.enable_loading_aot_compiled_components();
+                // loader.enable_loading_aot_compiled_components();
             },
             // Currently, it is only possible to precompile applications distributed using
             // `spin registry push`
